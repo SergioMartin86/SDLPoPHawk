@@ -1,0 +1,6 @@
+[submodule "waterbox/gpgx/SDL"]
+	path = waterbox/gpgx/SDL
+	url = https://github.com/libsdl-org/SDL.git
+[submodule "waterbox/gpgx/SDL_image"]
+	path = waterbox/gpgx/SDL_image
+	url = https://github.com/libsdl-org/SDL_image.git

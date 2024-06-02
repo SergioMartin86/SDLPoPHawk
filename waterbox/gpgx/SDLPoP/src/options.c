@@ -19,6 +19,7 @@ The authors of this program may be contacted at https://forum.princed.org
 */
 
 #include "common.h"
+#include <strings.h>
 #include <ctype.h>
 #ifdef __amigaos4__
 	#define strtoimax(a,b,c) strtoll(a,b,c)

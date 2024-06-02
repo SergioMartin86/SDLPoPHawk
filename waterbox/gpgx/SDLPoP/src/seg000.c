@@ -20,6 +20,7 @@ The authors of this program may be contacted at https://forum.princed.org
 
 #include "common.h"
 #include <setjmp.h>
+#include <strings.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
 #ifndef M_PI

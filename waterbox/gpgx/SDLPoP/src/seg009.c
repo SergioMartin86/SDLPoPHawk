@@ -21,6 +21,7 @@ The authors of this program may be contacted at https://forum.princed.org
 #include "common.h"
 #include <time.h>
 #include <errno.h>
+#include <strings.h>
 
 #ifdef _WIN32
 #include <windows.h>

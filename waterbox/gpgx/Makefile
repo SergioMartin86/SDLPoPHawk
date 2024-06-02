@@ -1,4 +1,6 @@
 GPGX_DIR := Genesis-Plus-GX
+SDLPOP_DIR := SDLPoP
+SDL_IMG_DIR := SDL_image
 
 CCFLAGS := 	-Iutil \
     -I${GPGX_DIR}/core \
@@ -13,6 +15,7 @@ CCFLAGS := 	-Iutil \
 	-I${GPGX_DIR}/core/debug \
 	-Icinterface \
 	-Iutil \
+	-ISDL_image/include \
 	-Wall -Werror=pointer-to-int-cast -Werror=int-to-pointer-cast -Werror=implicit-function-declaration \
 	-std=c99 -fomit-frame-pointer -Wfatal-errors \
 	-DUSE_BIZHAWK_CALLBACKS \
@@ -83,6 +86,48 @@ SRCS = $(GPGX_DIR)/core/sound/sound.c \
 	   $(GPGX_DIR)/core/loadrom.c \
 	   cinterface/cdStreamImpl.c \
 	   cinterface/cinterface.c \
-	   util/scrc32.c
+	   util/scrc32.c \
+				$(SDLPOP_DIR)/src/options.c \
+	   $(SDLPOP_DIR)/src/seg007.c \
+	   $(SDLPOP_DIR)/src/menu.c \
+	   $(SDLPOP_DIR)/src/seg003.c \
+	   $(SDLPOP_DIR)/src/lighting.c \
+	   $(SDLPOP_DIR)/src/screenshot.c \
+	   $(SDLPOP_DIR)/src/seg009.c \
+	   $(SDLPOP_DIR)/src/seg008.c \
+	   $(SDLPOP_DIR)/src/seg002.c \
+	   $(SDLPOP_DIR)/src/opl3.c \
+	   $(SDLPOP_DIR)/src/replay.c \
+	   $(SDLPOP_DIR)/src/seqtbl.c \
+	   $(SDLPOP_DIR)/src/seg000.c \
+	   $(SDLPOP_DIR)/src/seg005.c \
+	   $(SDLPOP_DIR)/src/data.c \
+	   $(SDLPOP_DIR)/src/seg006.c \
+	   $(SDLPOP_DIR)/src/seg001.c \
+	   $(SDLPOP_DIR)/src/midi.c \
+	   $(SDLPOP_DIR)/src/stb_vorbis.c \
+	   $(SDLPOP_DIR)/src/main.c \
+	   $(SDLPOP_DIR)/src/seg004.c \
+				$(SDL_IMG_DIR)/src/IMG_WIC.c \
+				$(SDL_IMG_DIR)/src/IMG_pnm.c \
+				$(SDL_IMG_DIR)/src/IMG_bmp.c \
+				$(SDL_IMG_DIR)/src/IMG_svg.c \
+				$(SDL_IMG_DIR)/src/IMG_gif.c \
+				$(SDL_IMG_DIR)/src/IMG_jpg.c \
+				$(SDL_IMG_DIR)/src/IMG_tif.c \
+				$(SDL_IMG_DIR)/src/IMG_xpm.c \
+				$(SDL_IMG_DIR)/src/IMG_lbm.c \
+				$(SDL_IMG_DIR)/src/IMG_webp.c \
+				$(SDL_IMG_DIR)/src/IMG_pcx.c \
+				$(SDL_IMG_DIR)/src/IMG_png.c \
+				$(SDL_IMG_DIR)/src/IMG_xcf.c \
+				$(SDL_IMG_DIR)/src/IMG_qoi.c \
+				$(SDL_IMG_DIR)/src/IMG_avif.c \
+				$(SDL_IMG_DIR)/src/IMG_xv.c \
+				$(SDL_IMG_DIR)/src/IMG_stb.c \
+				$(SDL_IMG_DIR)/src/IMG_jxl.c \
+				$(SDL_IMG_DIR)/src/IMG_tga.c \
+				$(SDL_IMG_DIR)/src/IMG.c \
+				$(SDL_IMG_DIR)/src/IMG_xxx.c 
 
 include ../common.mak

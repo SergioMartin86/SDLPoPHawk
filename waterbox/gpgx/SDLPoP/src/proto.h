@@ -18,6 +18,8 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 The authors of this program may be contacted at https://forum.princed.org
 */
 
+#include <alloca.h>
+
 // SEG000.C
 void pop_main(void);
 void init_game_main(void);
