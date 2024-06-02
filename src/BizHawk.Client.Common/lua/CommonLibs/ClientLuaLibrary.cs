@@ -5,7 +5,6 @@ using System.Drawing;
 using System.Linq;
 using System.Threading;
 
-using BizHawk.Client.Common.cheats;
 using BizHawk.Common;
 using BizHawk.Emulation.Common;
 
@@ -400,64 +399,6 @@ namespace BizHawk.Client.Common
 				{
 					break;
 				}
-			}
-		}
-
-		[LuaMethodExample("client.addcheat(\"NNNPAK\");")]
-		[LuaMethod("addcheat", "adds a cheat code, if supported")]
-		public void AddCheat(string code)
-		{
-			if (string.IsNullOrWhiteSpace(code))
-			{
-				return;
-			}
-
-			if (!MainForm.Emulator.HasMemoryDomains())
-			{
-				Log($"cheat codes not supported by the current system: {MainForm.Emulator.SystemId}");
-				return;
-			}
-			
-			var decoder = new GameSharkDecoder(MainForm.Emulator.AsMemoryDomains(), MainForm.Emulator.SystemId);
-			var result = decoder.Decode(code);
-			
-			if (result.IsValid(out var valid))
-			{
-				var domain = decoder.CheatDomain();
-				MainForm.CheatList.Add(valid.ToCheat(domain, code));
-			}
-			else
-			{
-				Log(result.Error);
-			}
-		}
-
-		[LuaMethodExample("client.removecheat(\"NNNPAK\");")]
-		[LuaMethod("removecheat", "removes a cheat, if it already exists")]
-		public void RemoveCheat(string code)
-		{
-			if (string.IsNullOrWhiteSpace(code))
-			{
-				return;
-			}
-
-			if (!MainForm.Emulator.HasMemoryDomains())
-			{
-				Log($"cheat codes not supported by the current system: {MainForm.Emulator.SystemId}");
-				return;
-			}
-
-			var decoder = new GameSharkDecoder(MainForm.Emulator.AsMemoryDomains(), MainForm.Emulator.SystemId);
-			var result = decoder.Decode(code);
-
-			if (result.IsValid(out var valid))
-			{
-				MainForm.CheatList.RemoveRange(
-					MainForm.CheatList.Where(c => c.Address == valid.Address));
-			}
-			else
-			{
-				Log(result.Error);
 			}
 		}
 	}

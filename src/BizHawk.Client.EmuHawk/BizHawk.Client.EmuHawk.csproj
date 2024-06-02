@@ -337,9 +337,6 @@
 		<Compile Update="tools/Debugger/RegisterBoxControl.cs" SubType="UserControl" />
 		<Compile Update="tools/Debugger/RegisterBoxControl.Designer.cs" DependentUpon="RegisterBoxControl.cs" />
 		<EmbeddedResource Update="tools/Debugger/RegisterBoxControl.resx" DependentUpon="RegisterBoxControl.cs" />
-		<Compile Update="tools/GameShark.cs" SubType="Form" />
-		<Compile Update="tools/GameShark.Designer.cs" DependentUpon="GameShark.cs" />
-		<EmbeddedResource Update="tools/GameShark.resx" DependentUpon="GameShark.cs" SubType="Designer" />
 		<Compile Update="tools/GBA/GBAGPUView.cs" SubType="Form" />
 		<Compile Update="tools/GBA/GBAGPUView.Designer.cs" DependentUpon="GBAGPUView.cs" />
 		<EmbeddedResource Update="tools/GBA/GBAGPUView.resx" DependentUpon="GBAGPUView.cs" />

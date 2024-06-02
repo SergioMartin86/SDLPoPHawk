@@ -259,11 +259,6 @@ namespace BizHawk.Client.EmuHawk
 			this.DisableAllCheatsMenuItem.Text = "Disable all";
 			this.DisableAllCheatsMenuItem.Click += new System.EventHandler(this.DisableAllCheatsMenuItem_Click);
 			// 
-			// OpenGameGenieEncoderDecoderMenuItem
-			// 
-			this.OpenGameGenieEncoderDecoderMenuItem.Text = "Code Converter";
-			this.OpenGameGenieEncoderDecoderMenuItem.Click += new System.EventHandler(this.OpenGameGenieEncoderDecoderMenuItem_Click);
-			// 
 			// OptionsSubMenu
 			// 
 			this.OptionsSubMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -368,16 +363,6 @@ namespace BizHawk.Client.EmuHawk
 			this.MoveDownToolbarItem.Size = new System.Drawing.Size(23, 22);
 			this.MoveDownToolbarItem.Text = "Move Down";
 			this.MoveDownToolbarItem.Click += new System.EventHandler(this.MoveDownMenuItem_Click);
-			// 
-			// LoadGameGenieToolbarItem
-			// 
-			this.LoadGameGenieToolbarItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-			this.LoadGameGenieToolbarItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-			this.LoadGameGenieToolbarItem.Name = "LoadGameGenieToolbarItem";
-			this.LoadGameGenieToolbarItem.Size = new System.Drawing.Size(75, 22);
-			this.LoadGameGenieToolbarItem.Text = "Code Converter";
-			this.LoadGameGenieToolbarItem.ToolTipText = "Open the Cheat Code Converter";
-			this.LoadGameGenieToolbarItem.Click += new System.EventHandler(this.OpenGameGenieEncoderDecoderMenuItem_Click);
 			// 
 			// TotalLabel
 			// 

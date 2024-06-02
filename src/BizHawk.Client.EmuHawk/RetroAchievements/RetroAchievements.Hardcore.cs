@@ -34,7 +34,7 @@ namespace BizHawk.Client.EmuHawk
 		private static readonly Type[] HardcoreProhibitedTools =
 		{
 			typeof(LuaConsole), typeof(RamWatch), typeof(RamSearch),
-			typeof(GameShark), typeof(SNESGraphicsDebugger), typeof(PceBgViewer),
+			typeof(SNESGraphicsDebugger), typeof(PceBgViewer),
 			typeof(PceTileViewer), typeof(GenVdpViewer), typeof(SmsVdpViewer),
 			typeof(PCESoundDebugger), typeof(MacroInputTool), typeof(GenericDebugger),
 			typeof(NESNameTableViewer), typeof(TraceLogger), typeof(CDL),

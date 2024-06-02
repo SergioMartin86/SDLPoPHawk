@@ -1410,11 +1410,6 @@ namespace BizHawk.Client.EmuHawk
 			this.CheatsMenuItem.Text = "Cheats";
 			this.CheatsMenuItem.Click += new System.EventHandler(this.CheatsMenuItem_Click);
 			// 
-			// GameSharkConverterMenuItem
-			// 
-			this.GameSharkConverterMenuItem.Text = "Cheat Code Converter";
-			this.GameSharkConverterMenuItem.Click += new System.EventHandler(this.CheatCodeConverterMenuItem_Click);
-			// 
 			// MultiDiskBundlerFileMenuItem
 			// 
 			this.MultiDiskBundlerFileMenuItem.Text = "Multi-disk Bundler";

@@ -165,7 +165,6 @@ namespace BizHawk.Client.EmuHawk
 			CheatEditor.MemoryDomains = Core;
 			LoadConfigSettings();
 			CheatsMenu.Items.Add(CheatListView.ToColumnsMenu(ColumnToggleCallback));
-			ToggleGameGenieButton();
 			CheatEditor.SetAddEvent(AddCheat);
 			CheatEditor.SetEditEvent(EditCheat);
 			GeneralUpdate();
@@ -180,13 +179,6 @@ namespace BizHawk.Client.EmuHawk
 		private void ColumnToggleCallback()
 		{
 			Settings.Columns = CheatListView.AllColumns;
-		}
-
-		private void ToggleGameGenieButton()
-		{
-			GameGenieToolbarSeparator.Visible =
-				LoadGameGenieToolbarItem.Visible =
-				Tools.IsAvailable<GameShark>();
 		}
 
 		private void AddCheat()
@@ -322,7 +314,6 @@ namespace BizHawk.Client.EmuHawk
 				MainForm.CheatList.NewList(Tools.GenerateDefaultCheatFilename());
 				GeneralUpdate();
 				UpdateMessageLabel();
-				ToggleGameGenieButton();
 			}
 		}
 
@@ -392,10 +383,6 @@ namespace BizHawk.Client.EmuHawk
 #if false // Always leave enabled even if no cheats enabled. This way the hotkey will always work, even if a new cheat is enabled without also refreshing the menu
 			DisableAllCheatsMenuItem.Enabled = MainForm.CheatList.AnyActive;
 #endif
-
-			GameGenieSeparator.Visible =
-				OpenGameGenieEncoderDecoderMenuItem.Visible =
-				Tools.IsAvailable<GameShark>();
 		}
 
 		private void RemoveCheatMenuItem_Click(object sender, EventArgs e)
@@ -491,11 +478,6 @@ namespace BizHawk.Client.EmuHawk
 		private void DisableAllCheatsMenuItem_Click(object sender, EventArgs e)
 		{	
 			MainForm.CheatList.DisableAll();
-		}
-
-		private void OpenGameGenieEncoderDecoderMenuItem_Click(object sender, EventArgs e)
-		{
-			Tools.Load<GameShark>();
 		}
 
 		private void SettingsSubMenu_DropDownOpened(object sender, EventArgs e)

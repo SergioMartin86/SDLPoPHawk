@@ -6,7 +6,6 @@ using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using BizHawk.Client.Common;
-using BizHawk.Client.Common.cheats;
 using BizHawk.Emulation.Common;
 
 namespace BizHawk.Tests.Client.Common.cheats
@@ -56,34 +55,5 @@ namespace BizHawk.Tests.Client.Common.cheats
 			new object?[] { VSystemID.Raw.GBA, "4012F5B7 3B7801A6", 0x00000006, 0xB7, NO_COMPARE, WatchSize.Byte },
 			new object?[] { VSystemID.Raw.GBA, "686D7FC3 24B5B832", 0x00000032, 0x7FC3, NO_COMPARE, WatchSize.Word },
 		};
-
-		[DataTestMethod]
-		[CheatcodeData]
-		public void TestCheatcodeParsing(string systemID, string code, int address, int value, int? compare, WatchSize size)
-		{
-			var result = new GameSharkDecoder(null, systemID).Decode(code);
-			if (!result.IsValid(out var valid)) Assert.Fail($"failed to parse: {((InvalidCheatCode) result).Error}");
-			Assert.AreEqual(address, valid.Address, "wrong addr");
-			Assert.AreEqual(size, valid.Size, "wrong size");
-			Assert.AreEqual(
-				value,
-				valid.Size switch
-				{
-					WatchSize.Byte => valid.Value & 0xFF,
-					WatchSize.Word => valid.Value & 0xFFFF,
-					_ => valid.Value
-				},
-				"wrong value");
-			Assert.AreEqual(compare, valid.Compare, "wrong compare");
-		}
-
-		[DataTestMethod]
-		[CheatcodeData(GenerateNonsense = true)]
-		public void TestNonsenseParsing(string systemID, string code, string error)
-		{
-			var result = new GameSharkDecoder(null, systemID).Decode(code);
-			Assert.IsFalse(result.IsValid(out _), "parsed unexpectedly");
-			Assert.AreEqual(error, result.Error, "wrong error msg");
-		}
 	}
 }

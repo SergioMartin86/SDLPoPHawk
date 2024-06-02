@@ -1135,7 +1135,6 @@ namespace BizHawk.Client.EmuHawk
 
 			BasicBotMenuItem.Enabled = Tools.IsAvailable<BasicBot>();
 
-			GameSharkConverterMenuItem.Enabled = Tools.IsAvailable<GameShark>();
 			MacroToolMenuItem.Enabled = MovieSession.Movie.IsActive() && Tools.IsAvailable<MacroInputTool>();
 			VirtualPadMenuItem.Enabled = Emulator.ControllerDefinition.Any();
 		}
@@ -1237,11 +1236,6 @@ namespace BizHawk.Client.EmuHawk
 		private void CheatsMenuItem_Click(object sender, EventArgs e)
 		{
 			Tools.Load<Cheats>();
-		}
-
-		private void CheatCodeConverterMenuItem_Click(object sender, EventArgs e)
-		{
-			Tools.Load<GameShark>();
 		}
 
 		private void MultidiskBundlerMenuItem_Click(object sender, EventArgs e)
