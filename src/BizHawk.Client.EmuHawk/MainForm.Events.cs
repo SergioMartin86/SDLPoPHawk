@@ -466,15 +466,6 @@ namespace BizHawk.Client.EmuHawk
 		private void PlayFromBeginningMenuItem_Click(object sender, EventArgs e)
 			=> _ = RestartMovie();
 
-		private void ImportMovieMenuItem_Click(object sender, EventArgs e)
-		{
-			var result = this.ShowFileMultiOpenDialog(
-				discardCWDChange: false,
-				filter: MovieImport.AvailableImporters,
-				initDir: Config.PathEntries.RomAbsolutePath(Emulator.SystemId));
-			if (result is not null) foreach (var fn in result) ProcessMovieImport(fn, false);
-		}
-
 		private void SaveMovieMenuItem_Click(object sender, EventArgs e)
 		{
 			SaveMovie();

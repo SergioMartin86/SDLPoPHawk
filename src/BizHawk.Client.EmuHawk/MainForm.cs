@@ -677,16 +677,8 @@ namespace BizHawk.Client.EmuHawk
 						_autoDumpLength = movie.InputLogLength;
 					}
 
-					// Copy pasta from drag & drop
-					if (MovieImport.IsValidMovieExtension(Path.GetExtension(_argParser.cmdMovie)))
-					{
-						ProcessMovieImport(_argParser.cmdMovie, true);
-					}
-					else
-					{
-						StartNewMovie(movie, false);
-						Config.RecentMovies.Add(_argParser.cmdMovie);
-					}
+					StartNewMovie(movie, false);
+					Config.RecentMovies.Add(_argParser.cmdMovie);
 
 					_suppressSyncSettingsWarning = false;
 				}
@@ -4184,31 +4176,6 @@ namespace BizHawk.Client.EmuHawk
 				OnRomChanged();
 			}
 		}
-
-		private void ProcessMovieImport(string fn, bool start)
-		{
-			var result = MovieImport.ImportFile(this, MovieSession, fn, Config);
-
-			if (result.Errors.Any())
-			{
-				ShowMessageBox(owner: null, string.Join("\n", result.Errors), "Conversion error", EMsgBoxIcon.Error);
-				return;
-			}
-
-			if (result.Warnings.Any())
-			{
-				AddOnScreenMessage(result.Warnings.First()); // For now, just show the first warning
-			}
-
-			AddOnScreenMessage($"{Path.GetFileName(fn)} imported as {result.Movie.Filename}");
-
-			if (start)
-			{
-				StartNewMovie(result.Movie, false);
-				Config.RecentMovies.Add(result.Movie.Filename);
-			}
-		}
-
 		public void EnableRewind(bool enabled)
 		{
 			if (!Emulator.HasSavestates())

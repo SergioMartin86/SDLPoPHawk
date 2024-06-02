@@ -768,11 +768,6 @@ namespace BizHawk.Client.EmuHawk
 			this.PlayFromBeginningMenuItem.Text = "Play from Beginning";
 			this.PlayFromBeginningMenuItem.Click += new System.EventHandler(this.PlayFromBeginningMenuItem_Click);
 			// 
-			// ImportMoviesMenuItem
-			// 
-			this.ImportMoviesMenuItem.Text = "Import Movies...";
-			this.ImportMoviesMenuItem.Click += new System.EventHandler(this.ImportMovieMenuItem_Click);
-			// 
 			// SaveMovieMenuItem
 			// 
 			this.SaveMovieMenuItem.Text = "&Save Movie";

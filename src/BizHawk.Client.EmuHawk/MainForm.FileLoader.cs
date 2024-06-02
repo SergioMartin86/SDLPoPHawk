@@ -56,21 +56,6 @@ namespace BizHawk.Client.EmuHawk
 			Tools.Load<Cheats>();
 		}
 
-		private void LoadLegacyMovie(string filename, string archive = null)
-		{
-			if (Emulator.IsNull())
-			{
-				OpenRom();
-			}
-
-			if (Emulator.IsNull())
-			{
-				return;
-			}
-
-			ProcessMovieImport(filename, true);
-		}
-
 		private void LoadLuaFile(string filename, string archive = null)
 		{
 			OpenLuaConsole();
@@ -147,10 +132,6 @@ namespace BizHawk.Client.EmuHawk
 						if (MovieService.IsValidMovieExtension(ext))
 						{
 							sortedFiles[LoadOrdering.MovieFile].Add(fileInformation);
-						}
-						else if (MovieImport.IsValidMovieExtension(ext))
-						{
-							sortedFiles[LoadOrdering.LegacyMovieFile].Add(fileInformation);
 						}
 						else if (RomLoader.KnownRomExtensions.Contains(ext))
 						{
@@ -288,7 +269,6 @@ namespace BizHawk.Client.EmuHawk
 									break;
 
 								if (value == LoadOrdering.MovieFile) _ = LoadMovie(filename, fileInformation.ArchiveName);
-								else LoadLegacyMovie(filename, fileInformation.ArchiveName);
 								break;
 						}
 						break;
